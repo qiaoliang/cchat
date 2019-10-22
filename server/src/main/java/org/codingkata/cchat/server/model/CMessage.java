@@ -1,4 +1,4 @@
-package me.wcy.cchat.server.model;
+package org.codingkata.cchat.server.model;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;

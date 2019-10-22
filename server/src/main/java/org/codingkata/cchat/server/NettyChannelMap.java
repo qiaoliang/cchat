@@ -1,4 +1,4 @@
-package me.wcy.cchat.server;
+package org.codingkata.cchat.server;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

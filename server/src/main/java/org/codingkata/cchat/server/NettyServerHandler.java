@@ -1,4 +1,4 @@
-package me.wcy.cchat.server;
+package org.codingkata.cchat.server;
 
 import com.google.gson.Gson;
 
@@ -7,9 +7,9 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.ReferenceCountUtil;
-import me.wcy.cchat.server.model.CMessage;
-import me.wcy.cchat.server.model.LoginInfo;
-import me.wcy.cchat.server.model.MsgType;
+import org.codingkata.cchat.server.model.CMessage;
+import org.codingkata.cchat.server.model.LoginInfo;
+import org.codingkata.cchat.server.model.MsgType;
 
 public class NettyServerHandler extends SimpleChannelInboundHandler<String> {
 

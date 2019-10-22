@@ -1,4 +1,4 @@
-package me.wcy.cchat.server;
+package org.codingkata.cchat.server;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFutureListener;

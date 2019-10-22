@@ -1,4 +1,4 @@
-package me.wcy.cchat.server.model;
+package org.codingkata.cchat.server.model;
 
 public interface MsgType {
     int LOGIN = 1;

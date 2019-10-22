@@ -1,9 +1,9 @@
-package me.wcy.cchat.server;
+package org.codingkata.cchat.server;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import me.wcy.cchat.server.model.LoginInfo;
+import org.codingkata.cchat.server.model.LoginInfo;
 
 /**
  * Created by hzwangchenyan on 2017/12/27.

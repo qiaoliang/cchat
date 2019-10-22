@@ -1,4 +1,6 @@
-package me.wcy.cchat.server;
+package org.codingkata.cchat.server;
+
+import org.codingkata.cchat.server.NettyServerBootstrap;
 
 public class PushServer {
 
