@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.widget.Toast;
 import me.wcy.cchat.R;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -38,7 +39,7 @@ public class MainActivityTest {
         assertNotNull(mainActivity);
     }
 
-    @Test
+    @Ignore
     public void testJump() throws Exception {
         //Activity跳转验证
 
@@ -51,10 +52,12 @@ public class MainActivityTest {
     }
 
 
-    @Test
+// ----------------以下是学习RobolectricTest的示例代码，如果有需要，再看就来得及-----------------//
+
+    @Ignore
     public void testToast() throws Exception {
         Toast toast = ShadowToast.getLatestToast();
-        // 判断Toast尚未弹出
+        // 判断Toast尚未弹出≠
         assertNull(toast);
 
         toast = ShadowToast.getLatestToast();
@@ -65,7 +68,7 @@ public class MainActivityTest {
         assertEquals("Hello UT!", ShadowToast.getTextOfLatestToast());
     }
 
-    @Test
+    @Ignore
     public void testDialog() throws Exception {
         AlertDialog dialog = ShadowAlertDialog.getLatestAlertDialog();
         // 判断Dialog尚未弹出
@@ -80,7 +83,7 @@ public class MainActivityTest {
         assertEquals("Hello UT！", shadowDialog.getMessage());
     }
 
-    @Test
+    @Ignore
     public void testCheckBoxState() throws Exception {
 
         // 验证CheckBox初始状态
@@ -98,7 +101,7 @@ public class MainActivityTest {
         assertFalse(checked);
     }
     //验证Fragment
-    @Test
+    @Ignore
     public void testFragment() {
         //SampleFragment sampleFragment = new SampleFragment();
         //添加Fragment到Activity中，会触发Fragment的onCreateView()
@@ -106,7 +109,7 @@ public class MainActivityTest {
         //assertNotNull(sampleFragment.getView());
     }
 
-    @Test
+    @Ignore
     public void testResources() {
         //访问资源文件
         Application application = RuntimeEnvironment.application;
