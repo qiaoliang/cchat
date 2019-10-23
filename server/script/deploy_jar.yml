@@ -1,0 +1,22 @@
+---
+- hosts: app
+  remote_user: root
+  vars:
+    server_jar: ../build/libs/nettyServer-all.jar
+    service_file: cchatservice
+
+  tasks:
+    - name: stop old server
+      shell: 'systemctl stop cchatServer.service&'
+
+    - name: copyjarfile
+      copy: src={{ server_jar }}   dest=/tmp/nettyServer-all.jar
+
+    - name: copy service file
+      copy: src={{ server_jar }}   dest=/usr/lib/systemd/system/cchatServer.service
+
+
+    - name: reload daemon systemctl
+      shell: 'systemctl  daemon-reload&'
+    - name: start cchatServer
+      shell: 'systemctl start cchatServer.service&'

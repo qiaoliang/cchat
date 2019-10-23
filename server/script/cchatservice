@@ -1,0 +1,10 @@
+[Unit]
+Description=xxx
+After=syslog.target
+[Service]
+
+ExecStart=/usr/bin/java -jar  /tmp/nettyServer-all.jar
+
+[Install]
+
+WantedBy=multi-user.target
