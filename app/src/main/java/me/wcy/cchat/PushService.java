@@ -35,12 +35,9 @@ import me.wcy.cchat.model.LoginInfo;
 import me.wcy.cchat.model.LoginStatus;
 import me.wcy.cchat.model.MsgType;
 
-/**
- * Created by hzwangchenyan on 2017/12/26.
- */
 public class PushService extends Service {
     private static final String TAG = "PushService";
-    private static final String HOST = "10.240.78.82";
+    private static final String HOST = "148.70.9.32";
     private static final int PORT = 8300;
 
     private SocketChannel socketChannel;

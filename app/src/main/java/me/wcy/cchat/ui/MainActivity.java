@@ -14,7 +14,6 @@ import me.wcy.cchat.AppCache;
 import me.wcy.cchat.R;
 import me.wcy.cchat.model.CMessage;
 import me.wcy.cchat.model.Callback;
-import me.wcy.cchat.model.MsgType;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView terminal;
@@ -42,13 +41,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         AppCache.getService().setReceiveMsgCallback(receiveMsgCallback);
     }
 
-    private Callback<CMessage> receiveMsgCallback = new Callback<CMessage>() {
+    private Callback <CMessage> receiveMsgCallback = new Callback <CMessage>() {
         @Override
         public void onEvent(int code, String msg, CMessage message) {
             terminal.append("[接收]" + message.getFrom() + ":" + message.getContent());
             terminal.append("\n");
         }
     };
+
     @Override
     public void onClick(View v) {
         if (etAccount.length() == 0 || etMessage.length() == 0) {
@@ -56,11 +56,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         String myAccount = AppCache.getMyInfo().getAccount();
-        CMessage message = new CMessage();
-        message.setFrom(myAccount);
-        message.setTo(etAccount.getText().toString());
-        message.setType(MsgType.TEXT);
-        message.setContent(etMessage.getText().toString());
+        String toUser = etAccount.getText().toString();
+        if (toUser.equals(myAccount)) {
+            terminal.append("[发送失败]" + "你不能发送信息给自己" + "。");
+            return;
+        }
+
+        CMessage message = CMessage.buildMessage(myAccount, toUser, etMessage.getText().toString());
         AppCache.getService().sendMsg(message, (code, msg, aVoid) -> {
             if (code == 200) {
                 etMessage.setText(null);
@@ -73,17 +75,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //Only For example
-    public void jump(View view){
+    public void jump(View view) {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
     // only for example
-    public void showToast(View view){
-        Toast.makeText(this,"Hello UT!",Toast.LENGTH_LONG).show();
+    public void showToast(View view) {
+        Toast.makeText(this, "Hello UT!", Toast.LENGTH_LONG).show();
     }
 
     // only for example
-    public void showDialog(View view){
+    public void showDialog(View view) {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setMessage("Hello UT！")
                 .setTitle("提示")
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     //UI组件状态验证
-    public void inverse(View view){
+    public void inverse(View view) {
         //checkbox.setChecked(!checkbox.isChecked());
     }
 }

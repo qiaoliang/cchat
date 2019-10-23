@@ -18,6 +18,15 @@ public class CMessage implements Serializable {
     @SerializedName("content")
     private String content;
 
+    public static CMessage buildMessage(String myAccount, String toUser, String content) {
+        CMessage message = new CMessage();
+        message.setFrom(myAccount);
+        message.setTo(toUser);
+        message.setType(MsgType.TEXT);
+        message.setContent(content);
+        return message;
+    }
+
     public String toJson() {
         Gson gson = new Gson();
         return gson.toJson(this);
@@ -54,4 +63,5 @@ public class CMessage implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
-}
+
+    }
